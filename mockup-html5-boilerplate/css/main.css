@@ -95,11 +95,39 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.header-image {
+    background-size: 75px 75px;
+    background-repeat: no-repeat;
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    border-bottom: 0px;
+    margin-right: 5px;
+}
 
+.header-image-hiking {
+    background-image: url(../img/camping.jpg);
+}
 
+.header-image-climbing {
+    background-image: url(../img/climbing.jpg);
+}
 
+.header-image-running {
+    background-image: url(../img/cycling.jpg);
+}
 
+.header-image-strength {
+    background-image: url(../img/hiking.jpg); 
+}
 
+.header-image-cycling {
+    background-image: url(../img/strength.jpg);
+}
+
+.header-image-camping {
+    background-image: url(../img/trail-running.jpg);
+}
 
 
 

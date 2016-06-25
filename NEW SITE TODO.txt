@@ -1,0 +1,22 @@
+NEW SITE TODO
+================
+- Build pelican theme using foundation layouts. 
+-- Lay out (all assets) in HTML using HTML 5 best practices / tags
+---- which tag to use: http://html5doctor.com/downloads/h5d-sectioning-flowchart.png
+---- http://html5doctor.com/avoiding-common-html5-mistakes/
+--- Page: Home / Index 
+---- header section
+----- images
+----- title
+----- actual nav section
+---- article div
+----- articles section - use pelican's theme / structure - i like that.
+---- footer section
+--- Archives
+--- Tag Page (Filtered Home / Index?)
+--- Categories Page  (Filtered Home / Index?)
+--- About Page (Resume?)
+
+- After layout complete - CSS Styling
+-- top images: search for (example): climber sillhouette
+- Read this: https://emptysqua.re/blog/write-an-excellent-programming-blog/
