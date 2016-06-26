@@ -110,37 +110,6 @@ body {
     color: #666;    
 }
 
-#page {
-    background: #fff;
-    max-width: 872px;
-    padding: 54px 108px;
-    margin-left: auto;
-    margin-right: auto;  
-}
-
-.site-branding-text {
-    padding-top: 20px;
-}
-
-.site-title {
-    font-size: 27px;
-    line-height: 1;
-    position: relative;
-    z-index: 2;
-    display: inline-block;
-    clear: none;
-    margin: 0;
-}
-
-.site-description {
-    color: #999;
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 0;
-    margin: 7px auto;
-    text-align: center;    
-}
-
 h1,
 h2,
 h3,
@@ -188,6 +157,64 @@ h6 {
     margin: 27px 0;
 }
 
+#page {
+    background: #fff;
+    max-width: 872px;
+    padding: 54px 108px;
+    margin-left: auto;
+    margin-right: auto;  
+}
+
+.site-header {
+    margin: 0 0 27px;
+    padding: 0 0 12px;
+    border-bottom: 3px solid #eee;
+}
+
+.site-branding-text {
+    padding-top: 20px;
+}
+
+.site-title {
+    font-size: 27px;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    clear: none;
+    margin: 0;
+}
+
+.site-description {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0;
+    margin: 7px auto;
+    text-align: center;    
+}
+
+.main-navigation {
+    border-top: 3px solid #eee;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-top: 27px;
+    padding-top: 24px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+.main-navigation li:hover > a {
+    color: #1c7c7c;
+}
+.main-navigation a,
+.main-navigation a:visited {
+    text-decoration: none;
+    color: #999;
+}
+.main-navigation ul:first-child > li:last-of-type a {
+    border-bottom: 0;
+}
 
 /* ==========================================================================
    Helper classes
