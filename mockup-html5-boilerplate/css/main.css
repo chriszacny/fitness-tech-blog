@@ -253,6 +253,32 @@ a:active {
     margin-top: -20px;
 }
 
+a.older-posts-button {
+    border: 3px solid #eee !important;
+    text-transform: uppercase;
+    color: #999 !important;
+    width: 160px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+a.older-posts-button:hover {
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            color: #1c7c7c !important;
+            border-color: #1c7c7c !important;
+}
+
+.older-posts-row {
+    padding-bottom: 40px;
+    border-bottom: 3px solid #eee;
+}
+
+.social-row {
+    padding-top: 20px;
+}
 
 
 /* ==========================================================================
