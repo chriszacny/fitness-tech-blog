@@ -109,6 +109,9 @@ body {
     color: #666;    
 }
 
+
+/* Heading Styles
+---------------------*/
 h1,
 h2,
 h3,
@@ -126,7 +129,7 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: normal;
     margin: 27px 0;
 }
@@ -139,7 +142,7 @@ h3,
 }
 
 h4 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: normal;
     margin: 27px 0;
 }
@@ -156,6 +159,36 @@ h6 {
     margin: 27px 0;
 }
 
+
+/* Navigation / Links Styles
+---------------------*/
+nav ul li {
+    font-weight: 600;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+    text-decoration: none;
+    color: #666;
+}
+a:visited {
+    color: #1c7c7c !important;
+}
+a:hover,
+a:focus,
+a:active {
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            color: #1c7c7c !important;
+}
+
+/* Layout Styles 
+---------------------*/
 .site {
     background: #fff;
     margin: 0 auto;
@@ -200,9 +233,6 @@ h6 {
     z-index: 1;
 }
 
-.main-navigation li:hover > a {
-    color: #1c7c7c;
-}
 .main-navigation a,
 .main-navigation a:visited {
     text-decoration: none;
@@ -218,15 +248,10 @@ h6 {
     border-bottom: 1px solid #eee;
 }
 
-.blog-post p {
-    font-size: 18px;
+.meta-info {
+    font-style: italic;
+    margin-top: -20px;
 }
-
-nav ul li {
-    font-weight: 600;
-}
-
-
 
 
 

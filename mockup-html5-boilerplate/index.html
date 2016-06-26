@@ -63,9 +63,91 @@
 
             <div class="articles-section">
                 <article class="blog-post">
-                    <h1>Welcome to OutsideFit!</h3>
+                    <h1 class="entry-title">
+                        <a href="/first-impressions-of-the-go-programming-language.html">Welcome to OutsideFit!</a>
+                    </h1>
+                    <!--
+                    <footer class="post-info">
+                        <abbr class="published" title="2015-06-13T00:00:00-07:00">
+                            Published: Sat 13 June 2015
+                        </abbr>
+                        <br>
+                        <abbr class="modified" title="2015-06-13T00:00:00-07:00">
+                            Updated: Sat 13 June 2015
+                        </abbr>
+                        <address class="vcard author">
+                            By <a class="url fn" href="/author/chris-zacny.html">Chris Zacny</a>
+                        </address>
+                        <p>In <a href="/category/programming.html">Programming</a>.</p>
+                        <p>tags: <a href="/tag/go.html">Go</a> <a href="/tag/google.html">Google</a> <a href="/tag/asynchronous-programming.html">Asynchronous Programming</a> </p>
+                    </footer>
+                    -->
+
+                    <!--
+                    <div class="post-meta">
+                        <div class="published" title="2015-06-13T00:00:00-07:00">
+                            <p>Published: Sat 13 June 2015</p>
+                        </div>
+                        <div class="modified" title="2015-06-13T00:00:00-07:00">
+                            <p>Updated: Sat 13 June 2015</p>
+                        </div>
+                        <div class="vcard author">
+                            <p>By <a class="url fn" href="/author/chris-zacny.html">Chris Zacny</a></p>
+                        </div>
+                        <div>
+                            <p>In <a href="/category/programming.html">Programming</a>.</p>
+                        </div>
+                        <div>
+                            <p>tags: <a href="/tag/go.html">Go</a> <a href="/tag/google.html">Google</a> <a href="/tag/asynchronous-programming.html">Asynchronous Programming</a> </p>
+                        </div>
+                    </div>
+                    -->
+                    <p class="meta-info">
+                        Posted on June 15, 2015 
+                        by <strong><a class="url fn" href="/author/chris-zacny.html">Chris Zacny</a></strong>
+                         in <strong><a href="/category/programming.html">Programming</a></strong>.
+                        <br/>
+                        Tags: <strong><a href="/tag/go.html">Go</a></strong> <strong><a href="/tag/google.html">Google</a></strong> <strong><a href="/tag/asynchronous-programming.html">Asynchronous Programming</a></strong>
+                    </p>
+                    
+                    <!-- /.post-info -->
                     <img class="thumbnail" src="http://placehold.it/850x350"></img>
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+                    <h2>Overview</h2>
+                    <p>Have you ever encountered a new piece of technology that you were both fascinated by, and drove you kind of nuts at the same time? That is how I felt with the several hours I spent with <a href="https://golang.org/" target="_blank">the Go programming language</a> over the past week or so. I'll detail some of the specifics in this post. </p>
+                    <p>Disclaimer: these are mostly my opinions, so take them with a grain of salt.</p>
+                    <h2>Why Go?</h2>
+                    <p>Why indeed? It is a hard question to answer. I personally used it because an open source project I use a lot had a bug I wanted to fix, and it happened to be written in Go. I'd classify Go as a sort of popular fringe language at the moment, kind of in the same vein as Rust, D, Julia, et. al. These languages are all "kind of" popular, but they still haven't quite taken off yet. In Go's case, it was developed internally at Google, so it does have some merit in terms of an initial development staff.</p>
+                    <h3>But What is it Good At?</h3>
+                    <p>I'd say it has several things going for it:</p>
+                    <ul>
+                        <li>It is relatively terse, (but definitely NOT as terse as Python) which lends to relatively concise programs that do a lot with a little code.</li>
+                        <li>It has first class support for pointers. If you have a background in C/C++, and you use something like Python, you may miss the ability to work directly with memory; you can do so in Go.</li>
+                        <li>It is a compiled language. It was apparently built for performance.</li>
+                        <li>It is strongly-typed. might be negative in some peoples' opinions, but for me, I like to be able to see exactly what types of primitives I'm working with.</li>
+                        <li>Good functional support. Supports functional programming models out of the box (closures for example).</li>
+                        <li>Very "techy" feeling. I think Go would be a great candidate to move Computer Science students into once they've made it past the first or second level courses. I say that because it still retains the same terse feeling as Python, but allows much greater manipulation of the computer. Therefore, I think it would be an excellent second language, as students' competencies at programming improve.</li>
+                        <li>Excellent server application language. If you are attempting to build a fast, low-level server application that deals with lots of asynchronous requests, networking protocols, etc, Go would probably be a good candidate of languages. I did not use these features in my evaluation of it, so I can't speak to this point more than that.</li>
+                    </ul>
+                    <h3>What is it not so Good At?</h3>
+                    <p> Testing 123:
+                        <code>for (int i = 0; i < 10; i++) {
+                                  int a = 1;
+                              }
+                        </code>
+                    </p>
+                    <ul>
+                        <li>In my opinion, it is not a beginner language. This is contrary to what I see some of its documentation state. However, just making my way through the tutorials, I definitely felt like the documentation was talking to experienced programmers that have "been there". I wouldn't recommend somebody with no programming experience pick it up; there seem to be much better languages for that (Python or Ruby would be good choices). That said, I wouldn't totally oppose it if they had a good reason.</li>
+                        <li>No classes. That said, you can sort of mimic classes by using structs and receivers on functions. I'd have to guess that this was a very conscious decision made on Google's part and I'd be interested to learn more as to why it was built like this.</li>
+                        <li>It feels "backwards". Once you write a bit of it, you'll see what I mean, but here's an example of how to declare an integer variable:
+                            <ul>
+                                <li><strong>var myInt int</strong></li>
+                                <li>Apparently there was a reason for this; the designers wanted to write the declaration more how it would sound in your head had you not been conditioned by C++. For example, if you wanted to create "a variable of type integer", the way it is written above is more conducive to that grammar, vs. the C++ way. </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h2>Conclusion</h2>
+                    <p>I personally like the more "techy" languages, and I like the fact that Go is terse, yet gives you a lot of power. I would consider using it instead of Python when prototyping out my next server-side application. Given the claims of its speed, it might even make sense to stick with it for the full application lifecycle instead of moving to something like Java once the prototype took off. </p>
+                    <p>Overall, I'd say, if you enjoy systems programming, give it a try! </p>
                 </article>
 
                 <article class="blog-post">
