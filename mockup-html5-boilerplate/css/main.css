@@ -96,7 +96,6 @@ textarea {
    ========================================================================== */
 
 html {
-    //margin-top: 80px;
     font-size: 16px;
     line-height: 1.7em;
 }
@@ -105,7 +104,7 @@ body {
     background-color: #eee;
     font-family: "Roboto Slab", Georgia, Times, serif;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 27px;
     color: #666;    
 }
@@ -186,7 +185,6 @@ h6 {
 .site-description {
     color: #999;
     font-size: 16px;
-    font-weight: 300;
     letter-spacing: 0;
     margin: 7px auto;
     text-align: center;    
@@ -213,6 +211,24 @@ h6 {
 .main-navigation ul:first-child > li:last-of-type a {
     border-bottom: 0;
 }
+
+.blog-post {
+    margin: 0 0 53px;
+    padding: 0 0 27px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-post p {
+    font-size: 18px;
+}
+
+nav ul li {
+    font-weight: 600;
+}
+
+
+
+
 
 /* ==========================================================================
    Helper classes
