@@ -236,7 +236,7 @@ a:active {
 .main-navigation a,
 .main-navigation a:visited {
     text-decoration: none;
-    color: #999;
+    color: #1c7c7c !important;
 }
 .main-navigation ul:first-child > li:last-of-type a {
     border-bottom: 0;
@@ -278,6 +278,14 @@ a.older-posts-button:hover {
 
 .social-row {
     padding-top: 20px;
+}
+
+.categories-tags {
+    padding-left: 20px;
+}
+
+.categories-tags li a {
+    color: #1c7c7c;
 }
 
 
