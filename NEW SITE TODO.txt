@@ -1,13 +1,34 @@
 NEW SITE TODO
 ================
 
+-- Dreamhost Server: ???
+
+Site Buildout
+------------------
 --- Archives
 ---- Need to see how others do the large, medium, small text tags. I'm thinking 3-5 css classes placed on spans in the <p>.
---- Favicon
---- RSS Feed
+----- If I do tihs in flask, in theory, when I build / deploy the site, I could create a archives.dat file that has categories and tags (with counts) aggregated across articles.
+--- Favicon - get this working.
+--- RSS Feed  - need to generate like I do now on chriszacny.com
 --- display three pages, then Archives button
 --- need to lay out jinja templates for theme
 ---- OR consider just doing this as a Flask webserver again.
+
+
+Create Two Articles
+------------------
+-- ??
+-- ??
+
+
+Apache / Dreamhost Configuration
+------------------
+-- Set up subdomain: fitness.chriszacny.com. Redirect this to chriszacny.com.
+
+
+Deployment Managment
+------------------
+-- Create a build script of sorts that takes current Git content, generates appropriate files, and deploys to my dreamhost server. (Fabric?)
 
 
 - Build pelican theme using foundation layouts. 
@@ -16,17 +37,10 @@ NEW SITE TODO
 ---- http://html5doctor.com/avoiding-common-html5-mistakes/
 
 
-- lay out example article and typography
+Misc Notes
+------------------
 -- Three themes in play here:
 --- Foundation - layout / typography
 --- Penscratch - look and feel ???
 --- Pelican (Smashing) - ???
-
-
-
-
-
-
-
--- top images: search for (example): climber sillhouette
-- Read this: https://emptysqua.re/blog/write-an-excellent-programming-blog/
+-- Read this: https://emptysqua.re/blog/write-an-excellent-programming-blog/
