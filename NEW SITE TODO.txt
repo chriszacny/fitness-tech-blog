@@ -1,5 +1,15 @@
 NEW SITE TODO
 ================
+
+--- Archives
+---- Need to see how others do the large, medium, small text tags. I'm thinking 3-5 css classes placed on spans in the <p>.
+--- Favicon
+--- RSS Feed
+--- display three pages, then Archives button
+--- need to lay out jinja templates for theme
+---- OR consider just doing this as a Flask webserver again.
+
+
 - Build pelican theme using foundation layouts. 
 -- Lay out (all assets) in HTML using HTML 5 best practices / tags
 ---- which tag to use: http://html5doctor.com/downloads/h5d-sectioning-flowchart.png
@@ -13,10 +23,10 @@ NEW SITE TODO
 --- Pelican (Smashing) - ???
 
 
----- footer section
---- Archives
---- About Page (Resume?)
 
-- After layout complete - CSS Styling
+
+
+
+
 -- top images: search for (example): climber sillhouette
 - Read this: https://emptysqua.re/blog/write-an-excellent-programming-blog/
