@@ -1,34 +1,60 @@
 NEW SITE TODO
 ================
 
--- Dreamhost Server: ???
+-- Dreamhost Server: john-morton???
 
 Site Buildout
 ------------------
+--- Flask Site Buildout
+---- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
+---- Lay out routes
+----- /, /index, /home, /blog - default index page
+----- /about - about page
+----- /archives - archives page
+----- /blog/article_name - Only display this article. No "Older Posts button"
+----- /blog/tags/tag_name
+----- /blog/categories/category_name
+
+
+Jinja Templates
+------------------
+-- Create a main_template.html - contains header and footer
+-- Create article template
+-- Create about template
+-- Create archives template
+-- Need to figure out tagging, categories and such
+
+
+----
 --- Archives
 ---- Need to see how others do the large, medium, small text tags. I'm thinking 3-5 css classes placed on spans in the <p>.
------ If I do tihs in flask, in theory, when I build / deploy the site, I could create a archives.dat file that has categories and tags (with counts) aggregated across articles.
+----- If I do this in flask, in theory, when I build / deploy the site, I could create a site_data.json file that has categories and tags (with counts) aggregated across articles.
+--- Older Posts (Display when more than 3 posts remaining in post timeline history. On click, load up the next 3 pages). Users use back button to go back.
 --- Favicon - get this working.
 --- RSS Feed  - need to generate like I do now on chriszacny.com
---- display three pages, then Archives button
---- need to lay out jinja templates for theme
+
+
+--- need to lay out jinja templates
 ---- OR consider just doing this as a Flask webserver again.
 
 
 Create Two Articles
 ------------------
--- ??
--- ??
+-- Eastside Fitness Parks
+-- Seattle Area Nature Trails
+-- Why does everyone love cardio machines?
+-- 
 
 
 Apache / Dreamhost Configuration
 ------------------
 -- Set up subdomain: fitness.chriszacny.com. Redirect this to chriszacny.com.
+-- Move old chriszacny.com to technology.chriszacny.com. Remove non-relevant articles. Update Resume.
 
 
 Deployment Managment
 ------------------
--- Create a build script of sorts that takes current Git content, generates appropriate files, and deploys to my dreamhost server. (Fabric?)
+-- Create a build script of sorts that takes current Git content, generates appropriate files, and deploys to my dreamhost server. Need to restart the passenger.py processs to pic up new site_data.json. (Fabric?)
 
 
 - Build pelican theme using foundation layouts. 

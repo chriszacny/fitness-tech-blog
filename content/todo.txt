@@ -1,5 +1,0 @@
-NEW SITE TODO
-================
-- Build pelican theme using foundation layouts. Lay everything out in HTML using HTML 5 best practices
-- CSS Styling
-- Read this: https://emptysqua.re/blog/write-an-excellent-programming-blog/
