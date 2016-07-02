@@ -172,7 +172,7 @@ a {
          -o-transition: all .2s ease-in-out;
             transition: all .2s ease-in-out;
     text-decoration: none;
-    color: #666;
+    color: #1c7c7c;
 }
 a:visited {
     color: #1c7c7c !important;
@@ -184,7 +184,7 @@ a:active {
        -moz-transition: all .2s ease-in-out;
          -o-transition: all .2s ease-in-out;
             transition: all .2s ease-in-out;
-            color: #1c7c7c !important;
+            color: #666 !important;
 }
 
 /* Layout Styles 
@@ -233,11 +233,6 @@ a:active {
     z-index: 1;
 }
 
-.main-navigation a,
-.main-navigation a:visited {
-    text-decoration: none;
-    color: #1c7c7c !important;
-}
 .main-navigation ul:first-child > li:last-of-type a {
     border-bottom: 0;
 }
@@ -246,6 +241,27 @@ a:active {
     margin: 0 0 53px;
     padding: 0 0 27px;
     border-bottom: 1px solid #eee;
+}
+
+.entry-title a {
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+    text-decoration: none;
+    color: #666;
+}
+.entry-title a:visited {
+    color: #666 !important;
+}
+.entry-title a:hover,
+.entry-title a:focus,
+.entry-title a:active {
+    -webkit-transition: all .2s ease-in-out;
+       -moz-transition: all .2s ease-in-out;
+         -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            color: #1c7c7c !important;
 }
 
 .meta-info {
@@ -284,9 +300,6 @@ a.older-posts-button:hover {
     padding-left: 20px;
 }
 
-.categories-tags li a {
-    color: #1c7c7c;
-}
 
 
 /* ==========================================================================
