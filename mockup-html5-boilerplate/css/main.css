@@ -238,7 +238,7 @@ a:active {
 }
 
 .blog-post {
-    margin: 0 0 53px;
+    margin: 0 0 25px;
     padding: 0 0 27px;
     border-bottom: 1px solid #eee;
 }
@@ -269,27 +269,17 @@ a:active {
     margin-top: -20px;
 }
 
-a.older-posts-button {
-    border: 3px solid #eee !important;
+a.nav-posts-button {
     text-transform: uppercase;
-    color: #999 !important;
-    width: 160px;
     font-weight: 600;
-    padding: 10px;
 }
 
-a.older-posts-button:hover {
-    -webkit-transition: all .2s ease-in-out;
-       -moz-transition: all .2s ease-in-out;
-         -o-transition: all .2s ease-in-out;
-            transition: all .2s ease-in-out;
-            color: #1c7c7c !important;
-            border-color: #1c7c7c !important;
-}
-
-.older-posts-row {
-    padding-bottom: 40px;
+.nav-posts-row {
     border-bottom: 3px solid #eee;
+}
+
+.nav-posts-row div {
+    padding-bottom: 25px;
 }
 
 .social-row {
