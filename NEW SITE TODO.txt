@@ -3,17 +3,31 @@ NEW SITE TODO
 
 -- Dreamhost Server: john-morton???
 
+
+site_data.json
+------------------
+structure:
+
+
+
 Site Buildout
 ------------------
 --- Flask Site Buildout
 ---- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
 ---- Lay out routes
 ----- /, /index, /home, /blog - default index page
+------ Display 3 posts with prev and next links
 ----- /about - about page
 ----- /archives - archives page
 ----- /blog/article_name - Only display this article. No "Older Posts button"
 ----- /blog/tags/tag_name
+------ Display 3 posts with prev and next links
 ----- /blog/categories/category_name
+------ Display 3 posts with prev and next links
+
+--- Pagination
+---- Three posts per query / page. Just use '<< previous' and 'next >>' as necessary.
+---- Order posts by date, most recent at top
 
 
 Jinja Templates
