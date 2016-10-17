@@ -9,7 +9,8 @@ application = Flask(__name__)
 @application.route('/home/')
 @application.route('/blog/')
 def blog():
-    pass
+    # TODO: Temporary, eventually call index or blog.html when template overrides are done
+    return render_template('base_template.html')
 
 
 def main():

@@ -1,21 +1,13 @@
 NEW SITE TODO
 ================
 
--- Dreamhost Server: john-morton???
-
-
-site_data.json
-------------------
-structure:
-
-
 
 Site Buildout
 ------------------
 --- Flask Site Buildout
----- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
 ---- Lay out routes
 ----- /, /index, /home, /blog - default index page
+------ First, just set up base_template to look like index, make sure Flask displays it correctly with css, js, etc, no 404s.
 ------ Display 3 posts with prev and next links
 ----- /about - about page
 ----- /archives - archives page
@@ -24,6 +16,7 @@ Site Buildout
 ------ Display 3 posts with prev and next links
 ----- /blog/categories/category_name
 ------ Display 3 posts with prev and next links
+---- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
 
 --- Pagination
 ---- Three posts per query / page. Just use '<< previous' and 'next >>' as necessary.
@@ -32,7 +25,7 @@ Site Buildout
 
 Jinja Templates
 ------------------
--- Create a main_template.html - contains header and footer
+-- Create a base_template.html - contains header and footer
 -- Create article template
 -- Create about template
 -- Create archives template
@@ -54,6 +47,7 @@ Jinja Templates
 
 Create Two Articles
 ------------------
+-- Where do I go now? (different areas of fitness and benchmark testing)
 -- Eastside Fitness Parks
 -- Seattle Area Nature Trails
 -- Why does everyone love cardio machines?
