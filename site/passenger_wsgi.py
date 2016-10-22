@@ -14,7 +14,8 @@ def blog():
 
 
 def main():
-    application.run(host='127.0.0.1', debug=True)
+    application.config.from_pyfile('settings.py', silent=True)
+    application.run(host=application.config['HOST'], debug=True)
 
 
 if __name__ == '__main__':

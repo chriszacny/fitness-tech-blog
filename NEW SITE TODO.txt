@@ -45,21 +45,6 @@ Jinja Templates
 ---- OR consider just doing this as a Flask webserver again.
 
 
-Create Two Articles
-------------------
--- Where do I go now? (different areas of fitness and benchmark testing)
--- Eastside Fitness Parks
--- Seattle Area Nature Trails
--- Why does everyone love cardio machines?
--- 
-
-
-Apache / Dreamhost Configuration
-------------------
--- Set up subdomain: fitness.chriszacny.com. Redirect this to chriszacny.com.
--- Move old chriszacny.com to technology.chriszacny.com. Remove non-relevant articles. Update Resume.
-
-
 Deployment Managment
 ------------------
 -- Create a build script of sorts that takes current Git content, generates appropriate files, and deploys to my dreamhost server. Need to restart the passenger.py processs to pic up new site_data.json. (Fabric?)
