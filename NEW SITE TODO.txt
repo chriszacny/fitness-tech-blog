@@ -1,26 +1,49 @@
 NEW SITE TODO
 ================
 
+Site Behavior
+------------------
+/index, /blog, etc
+* Latest 3 posts loaded.
+* User click on post title - Takes you to just that post
+* Paging always displayed, goes by 3 posts when clicked
+*
+
+/blog/post-title
+* Displays only that blog post
+* Paging always displayed, goes by 3 posts when clicked
+*
+
 
 Site Buildout
 ------------------
 --- Flask Site Buildout
 ---- Lay out routes
------ /, /index, /home, /blog - default index page
------- First, just set up base_template to look like index, make sure Flask displays it correctly with css, js, etc, no 404s.
------- Display 3 posts with prev and next links
------ /about - about page
+----- /, /index, /home, /blog - default index page - DONE
+------ First, just set up base_template to look like index, make sure Flask displays it correctly with css, js, etc, no 404s. - DONE
+------ Display 3 posts with prev and next links - DONE
+------ Write code to parse Markdown into proper HTML
+------ Come up with a templatized version of the header section of each blog post. This will solve for the '/blog/article_name' task below
+---- write /blog/article_name method
+----- /about - about
+------ page
+------ method
 ----- /archives - archives page
+------ page
+------ method
 ----- /blog/article_name - Only display this article. No "Older Posts button"
------ /blog/tags/tag_name
------- Display 3 posts with prev and next links
------ /blog/categories/category_name
+
 ------ Display 3 posts with prev and next links
 ---- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
 
 --- Pagination
 ---- Three posts per query / page. Just use '<< previous' and 'next >>' as necessary.
 ---- Order posts by date, most recent at top
+
+Future Enhancements:
+----- /blog/tags/tag_name
+----- /blog/categories/category_name
+------ Display 3 posts with prev and next links
 
 
 Jinja Templates
@@ -50,7 +73,7 @@ Deployment Managment
 -- Create a build script of sorts that takes current Git content, generates appropriate files, and deploys to my dreamhost server. Need to restart the passenger.py processs to pic up new site_data.json. (Fabric?)
 
 
-- Build pelican theme using foundation layouts. 
+- Build pelican theme using foundation layouts.
 -- Lay out (all assets) in HTML using HTML 5 best practices / tags
 ---- which tag to use: http://html5doctor.com/downloads/h5d-sectioning-flowchart.png
 ---- http://html5doctor.com/avoiding-common-html5-mistakes/
