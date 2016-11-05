@@ -1,0 +1,9 @@
+{% extends "base_template.html" %}
+{% block subtitle %} - Blog Posts{% endblock %}
+{% block content %}
+  <div class="articles-section">
+    {% for post in posts %}
+      {% include 'post.html' %}
+    {% endfor %}
+  </div>
+{% endblock %}

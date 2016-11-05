@@ -1,24 +1,22 @@
 <!doctype html>
 <html class="no-js" lang="">
     <head>
-        {% block head %}
-            <meta charset="utf-8">
-            <meta http-equiv="x-ua-compatible" content="ie=edge">
-            <title>{{ config['SITE_TITLE'] }}</title>
-            <meta name="description" content="">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>{{ config['SITE_TITLE'] }}{% block subtitle %}{% endblock %}</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
-            <!-- Place favicon.ico in the root directory -->
+      <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+      <!-- Place favicon.ico in the root directory -->
 
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
-            <link rel="stylesheet" id="penscratch-fonts-css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/webicons.css') }}">
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+      <link rel="stylesheet" id="penscratch-fonts-css" href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=latin%2Clatin-ext" type="text/css" media="all">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/webicons.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
-            <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
-        {% endblock %}
+      <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -64,7 +62,10 @@
                 </div>
             </header>
 
-            <div class="articles-section">
+            {% block content %}
+            {% endblock %}
+
+              <!--
                 <article class="blog-post">
                     <h1 class="entry-title">
                         <a href="/first-impressions-of-the-go-programming-language.html">Welcome to OutsideFit!</a>
@@ -76,7 +77,6 @@
                         <br/>
                         Tags: <strong><a href="/tag/go.html">Go</a></strong> <strong><a href="/tag/google.html">Google</a></strong> <strong><a href="/tag/asynchronous-programming.html">Asynchronous Programming</a></strong>
                     </p>
-                    <!--<img class="thumbnail" src="http://placehold.it/850x350"></img>-->
                     <h2>Overview</h2>
                     <p>Have you ever encountered a new piece of technology that you were both fascinated by, and drove you kind of nuts at the same time? That is how I felt with the several hours I spent with <a href="https://golang.org/" target="_blank">the Go programming language</a> over the past week or so. I'll detail some of the specifics in this post. </p>
                     <p>Disclaimer: these are mostly my opinions, so take them with a grain of salt.</p>
@@ -122,16 +122,7 @@
                 </article>
             </div>
 
-<!--
-            <div class="row nav-posts-row">
-                <div class="column small-12 medium-4 text-center">
-                    <a href="" class="nav-posts-button"><<< Previous</a>
-                </div>
-                <div class="column small-12 medium-4 text-center">
-                    <a href="" class="nav-posts-button">Next >>></a>
-                </div>
-            </div>
--->
+          -->
 
             <div class="row nav-posts-row">
                 <div class="column small-12 medium-4 text-center">
