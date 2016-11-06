@@ -198,7 +198,7 @@ a:active {
 .site-header {
     margin: 0 0 27px;
     padding: 0 0 12px;
-    border-bottom: 3px solid #eee;
+    border-bottom: 5px solid #eee;
 }
 
 .site-branding-text {
@@ -224,7 +224,7 @@ a:active {
 }
 
 .main-navigation {
-    border-top: 3px solid #eee;
+    border-top: 5px solid #eee;
     font-weight: normal;
     letter-spacing: 1px;
     margin-top: 27px;
@@ -240,7 +240,7 @@ a:active {
 .blog-post {
     margin: 0 0 25px;
     padding: 0 0 100px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 5px solid #eee;
 }
 
 .meta-info {
@@ -254,7 +254,7 @@ a.nav-posts-button {
 }
 
 .nav-posts-row {
-    border-bottom: 3px solid #eee;
+    border-bottom: 5px solid #eee;
 }
 
 .nav-posts-row div {
