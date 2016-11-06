@@ -34,6 +34,11 @@ def posts_by_category(category_name):
     abort(404)
 
 
+@application.route('/about')
+def about():
+    return render_template('about.html')
+
+
 # Here is how to get the name of a lexer: pygmentize -N c:\temp\test.bat
 # Put that in the MD with :::NAME
 @application.route('/pygments.css')
