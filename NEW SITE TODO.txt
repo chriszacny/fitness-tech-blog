@@ -19,19 +19,12 @@ Site Buildout
 ------------------
 --- Flask Site Buildout
 ---- Lay out routes
------ /, /index, /home, /blog - default index page - DONE
------- First, just set up base_template to look like index, make sure Flask displays it correctly with css, js, etc, no 404s. - DONE
------- Display 3 posts with prev and next links - DONE
------- Write code to parse Markdown into proper HTML
------- Come up with a templatized version of the header section of each blog post. This will solve for the '/blog/article_name' task below
----- write /blog/article_name method
 ----- /about - about
 ------ page
 ------ method
 ----- /archives - archives page
 ------ page
 ------ method
------ /blog/article_name - Only display this article. No "Older Posts button"
 
 ------ Display 3 posts with prev and next links
 ---- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such

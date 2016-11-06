@@ -1,4 +1,4 @@
-slugname: analyzing_algorithmic_runtimes
+slugname: analyzing_algorithm_runtimes_1
 title: Analyzing Algorithmic Runtimes Made Easy
 date: 2014-04-03
 author: Chris Zacny
