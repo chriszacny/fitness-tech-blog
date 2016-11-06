@@ -19,9 +19,6 @@ Site Buildout
 ------------------
 --- Flask Site Buildout
 ---- Lay out routes
------ /about - about
------- page
------- method
 ----- /archives - archives page
 ------ page
 ------ method
