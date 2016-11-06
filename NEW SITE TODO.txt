@@ -24,7 +24,9 @@ Site Buildout
 ------ method
 
 ------ Display 3 posts with prev and next links
----- On startup / deploy, load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
+---- On startup / deploy / (add .md page),
+---- Generate site_data.json
+---- load site_data.json into memory. This will contain KVPs of categories, tags, dates : articles and such
 
 --- Pagination
 ---- Three posts per query / page. Just use '<< previous' and 'next >>' as necessary.

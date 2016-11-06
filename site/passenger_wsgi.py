@@ -12,7 +12,7 @@ flatpages = FlatPages(application)
 @application.route('/home/')
 @application.route('/blog/')
 def blog():
-    return render_template('blog_posts.html', posts=get_all_posts())
+    return render_template('blog_posts.html', posts=get_all_posts()[:application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']])
 
 
 @application.route('/blog/<slugname>/')
