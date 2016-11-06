@@ -1,11 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 from flask_flatpages import FlatPages
-
-
-FLATPAGES_AUTO_RELOAD = True
-FLATPAGES_EXTENSION = '.md'
-FLATPAGES_ROOT = 'content'
-BLOG_DIR = 'blog'
+from pygments.formatters import HtmlFormatter
 
 
 application = Flask(__name__)
@@ -27,15 +22,35 @@ def post(slugname):
     return render_template('blog_posts.html', posts=posts)
 
 
+@application.route('/blog/tag')
+def posts_by_tag(tag_name):
+    #TODO Figure this out
+    abort(404)
+
+
+@application.route('/blog/category')
+def posts_by_category(category_name):
+    #TODO Figure this out
+    abort(404)
+
+
+# Here is how to get the name of a lexer: pygmentize -N c:\temp\test.bat
+# Put that in the MD with :::NAME
+@application.route('/pygments.css')
+def pygments_css():
+    return HtmlFormatter(style='colorful').get_style_defs('.codehilite'), 200, {'Content-Type': 'text/css'}
+
+
 def get_post_url_by_name(name):
-    path = '{}/{}'.format(BLOG_DIR, name)
+    path = '{}/{}'.format(application.config['BLOG_DIR'], name)
     post = flatpages.get_or_404(path)
     return post
 
 
 def get_all_posts():
-    posts = [p for p in flatpages if p.path.startswith(BLOG_DIR)]
-    posts.sort(key=lambda item:item['date'], reverse=True)
+    posts = [p for p in flatpages if p.path.startswith(application.config['BLOG_DIR'])]
+    print(posts)
+    posts.sort(key=lambda item:item.meta['date'], reverse=True)
     return posts
 
 
