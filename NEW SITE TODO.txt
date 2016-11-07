@@ -1,6 +1,31 @@
 NEW SITE TODO
 ================
 
+Immediate TODO:
+- Implement Paging. Keep filtering by tags / category / date, in mind
+- Actually figure out site name
+- Write a few posts (See ideas in Trello)
+- Implement RSS - confirm above posts work
+- Disable Archives page for now - should default to "under construction" template
+- Category and tag links should
+- Start thinking about WSGI and WebServers:
+-- https://docs.python.org/2/howto/webservers.html
+-- https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface
+--- Will these efficiently run my Python process in parallel such that each request can
+    calculate data to return on the fly, or should I use some sort of cache like Redis?
+- Pick out provider - Heroku, Github (?), Google (?), AWS (?)
+-- Consider - run it in a Docker container
+- Set up Ansible automation for WebServer and Deployment
+- Set up CI process and GUI for above automation
+-- Dev Env
+-- Prod Env
+- Push to whatever prod env I choose - site should display on the internet
+
+After Initial Deploy TODO:
+- Implement Category, Tag, Date Filtering
+- Implement Archives Page
+
+
 Site Behavior
 ------------------
 /index, /blog, etc
@@ -32,21 +57,6 @@ Site Buildout
 ---- Three posts per query / page. Just use '<< previous' and 'next >>' as necessary.
 ---- Order posts by date, most recent at top
 
-Future Enhancements:
------ /blog/tags/tag_name
------ /blog/categories/category_name
------- Display 3 posts with prev and next links
-
-
-Jinja Templates
-------------------
--- Create a base_template.html - contains header and footer
--- Create article template
--- Create about template
--- Create archives template
--- Need to figure out tagging, categories and such
-
-
 ----
 --- Archives
 ---- Need to see how others do the large, medium, small text tags. I'm thinking 3-5 css classes placed on spans in the <p>.
@@ -59,6 +69,11 @@ Jinja Templates
 --- need to lay out jinja templates
 ---- OR consider just doing this as a Flask webserver again.
 
+
+Future Enhancements:
+----- /blog/tags/tag_name
+----- /blog/categories/category_name
+------ Display 3 posts with prev and next links
 
 Deployment Managment
 ------------------
