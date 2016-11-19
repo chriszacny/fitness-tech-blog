@@ -54,7 +54,6 @@ def get_post_url_by_name(name):
 
 def get_all_posts():
     posts = [p for p in flatpages if p.path.startswith(application.config['BLOG_DIR'])]
-    print(posts)
     posts.sort(key=lambda item:item.meta['date'], reverse=True)
     return posts
 
