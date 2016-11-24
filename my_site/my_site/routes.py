@@ -44,8 +44,7 @@ def get_post_url_by_name(name):
 
 def get_parsed_url_arguments():
     parsed_url_arguments = ParsedUrlArguments()
-    builder_workflows = {'current_page': [validate_current_page, set_current_page],
-                 'desired_page': [validate_desired_page, set_desired_page],
+    builder_workflows = {'page': [validate_page, set_page],
                  'tag': [validate_tag, set_tag],
                  'category': [validate_category, set_category]}
     for key in builder_workflows:
@@ -56,26 +55,15 @@ def get_parsed_url_arguments():
     return parsed_url_arguments
 
 
-def validate_current_page(parsed_url_arguments):
+def validate_page(parsed_url_arguments):
     try:
-        int(request.args.get('current_page'))
+        int(request.args.get('page'))
     except ValueError:
         abort()
 
 
-def set_current_page(parsed_url_arguments):
-    parsed_url_arguments.current_page = int(request.args.get('current_page'))
-
-
-def validate_desired_page(parsed_url_arguments):
-    try:
-        int(request.args.get('desired_page'))
-    except ValueError:
-        abort()
-
-
-def set_desired_page(parsed_url_arguments):
-    parsed_url_arguments.desired_page = int(request.args.get('desired_page'))
+def set_page(parsed_url_arguments):
+    parsed_url_arguments.page = int(request.args.get('page'))
 
 
 def validate_tag(parsed_url_arguments):
@@ -95,9 +83,8 @@ def set_category(parsed_url_arguments):
 
 
 class ParsedUrlArguments:
-    def __init__(self, current_page=0, desired_page=0, tag=None, category=None):
-        self.current_page = current_page
-        self.desired_page = desired_page
+    def __init__(self, page=0, tag=None, category=None):
+        self.page = page
         self.tag = tag
         self.category = category
 

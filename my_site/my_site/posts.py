@@ -77,16 +77,16 @@ class PostList(list):
     def apply_paging(self):
         posts_per_page = self.application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']
 
-        if self.criteria.desired_page is None or self.criteria.desired_page == 0:
+        if self.criteria.page is None or self.criteria.page == 0:
             del self[posts_per_page:]
             return
         else:
-            if self.criteria.desired_page < 0:
+            if self.criteria.page < 0:
                 raise SystemError()
-            if self.criteria.desired_page > self._total_number_of_pages:
+            if self.criteria.page > self._total_number_of_pages:
                 raise SystemError()
 
-            paging_offset = posts_per_page * self.criteria.desired_page
+            paging_offset = posts_per_page * self.criteria.page
             del self[paging_offset + posts_per_page:len(self)]
             del self[0:paging_offset]
 
@@ -111,20 +111,20 @@ class PostList(list):
 
     @property
     def has_previous_page(self):
-        if self.criteria.current_page > 0:
+        if self.criteria.page > 0:
             return True
         return False
 
     @property
     def has_next_page(self):
-        if self.criteria.current_page < self.total_number_of_pages:
+        if self.criteria.page < self.total_number_of_pages:
             return True
         return False
 
     @property
     def previous_page_number(self):
-        return self.criteria.current_page - 1
+        return self.criteria.page - 1
 
     @property
     def next_page_number(self):
-        return self.criteria.current_page + 1
+        return self.criteria.page + 1

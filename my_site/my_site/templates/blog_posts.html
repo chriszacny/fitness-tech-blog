@@ -9,10 +9,10 @@
 
   <div class="row nav-posts-row">
       <div class="column small-12 medium-4 text-center">
-          <a href="{{ url_for('blog') }}?desired_page={{ model_object.previous_page_number }}" class="nav-posts-button"><<< Previous</a>
+          <a href="{{ url_for('blog') }}?page={{ model_object.previous_page_number }}" class="nav-posts-button"><<< Previous</a>
       </div>
       <div class="column small-12 medium-4 text-center">
-          <a href="{{ url_for('blog') }}?desired_page={{ model_object.next_page_number }}" class="nav-posts-button">Next >>></a>
+          <a href="{{ url_for('blog') }}?page={{ model_object.next_page_number }}" class="nav-posts-button">Next >>></a>
       </div>
   </div>
 
