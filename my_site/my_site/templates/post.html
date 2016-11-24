@@ -5,9 +5,9 @@
     <p class="meta-info">
         Posted on {{ post.meta['date'] }}
         by <strong>{{ post.meta['author'] }}</strong>
-         in <strong><a href="{{ url_for('posts_by_category') }}">{{ post.meta['category'] }}</a></strong>.
+         in <strong><a href="{{ url_for('blog') }}?category={{ post.meta['category'] }}">{{ post.meta['category'] }}</a></strong>.
         <br/>
-        Tags: {% for tag_name in post.meta['tags'] %}<strong><a href="{{ url_for('posts_by_tag') }}">{{ tag_name }}</a></strong> {% endfor %}
+        Tags: {% for tag_name in post.meta['tags'] %}<strong><a href="{{ url_for('blog') }}?tag={{ tag_name }}">{{ tag_name }}</a></strong> {% endfor %}
     </p>
     {{ post.html|safe }}
 </article>
