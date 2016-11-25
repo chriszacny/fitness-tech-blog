@@ -2,11 +2,9 @@ NEW SITE TODO
 ================
 
 Immediate TODO:
-- Implement Paging. Keep filtering by tags / category / date, in mind
 - Actually figure out site name
 - Write a few posts (See ideas in Trello)
 - Implement RSS - confirm above posts work
-- Disable Archives page for now - should default to "under construction" template
 - Category and tag links should
 - Start thinking about WSGI and WebServers:
 -- https://docs.python.org/2/howto/webservers.html
