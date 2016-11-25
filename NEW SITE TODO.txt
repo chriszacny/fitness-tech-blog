@@ -2,10 +2,13 @@ NEW SITE TODO
 ================
 
 Immediate TODO:
+- Previous / Next should display appropriately
+- Clicking on single post link should take you there
+- Implement 'Summary' meta - display this, and perhaps an image in overview.
+- Create favicon
 - Actually figure out site name
 - Write a few posts (See ideas in Trello)
 - Implement RSS - confirm above posts work
-- Category and tag links should
 - Start thinking about WSGI and WebServers:
 -- https://docs.python.org/2/howto/webservers.html
 -- https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface
