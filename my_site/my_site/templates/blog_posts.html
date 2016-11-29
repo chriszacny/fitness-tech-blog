@@ -3,16 +3,20 @@
 {% block content %}
   <div class="articles-section">
     {% for post in model_object %}
-      {% include 'post.html' %}
+      {% include 'post_summary.html' %}
     {% endfor %}
   </div>
 
   <div class="row nav-posts-row">
       <div class="column small-12 medium-4 text-center">
-          <a href="{{ url_for('blog') }}?page={{ model_object.previous_page_number }}" class="nav-posts-button"><<< Previous</a>
+          {% if model_object.has_previous_page %}
+            <a href="{{ url_for('blog') }}?page={{ model_object.previous_page_number }}" class="nav-posts-button"><<< Previous</a>
+          {% endif %}
       </div>
       <div class="column small-12 medium-4 text-center">
-          <a href="{{ url_for('blog') }}?page={{ model_object.next_page_number }}" class="nav-posts-button">Next >>></a>
+          {% if model_object.has_next_page %}
+            <a href="{{ url_for('blog') }}?page={{ model_object.next_page_number }}" class="nav-posts-button">Next >>></a>
+          {% endif %}
       </div>
   </div>
 

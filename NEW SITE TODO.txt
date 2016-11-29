@@ -2,9 +2,8 @@ NEW SITE TODO
 ================
 
 Immediate TODO:
-- Previous / Next should display appropriately
-- Clicking on single post link should take you there
 - Implement 'Summary' meta - display this, and perhaps an image in overview.
+- Clicking on single post link should take you there
 - Create favicon
 - Actually figure out site name
 - Write a few posts (See ideas in Trello)

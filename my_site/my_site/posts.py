@@ -117,7 +117,7 @@ class PostList(list):
 
     @property
     def has_next_page(self):
-        if self.criteria.page < self.total_number_of_pages:
+        if self.criteria.page < self.total_number_of_pages - 1:
             return True
         return False
 
