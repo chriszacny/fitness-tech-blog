@@ -3,6 +3,24 @@ from my_site import flatpages
 from abc import abstractmethod, ABCMeta
 
 
+class PagingStrategies:
+    ListViewPagingStrategy = 0
+    SinglePostPagingStrategy = 1
+
+
+class ListViewPagingStrategy:
+    def apply_paging():
+        pass
+
+
+class SinglePostPagingStrategy:
+    def apply_paging():
+        pass
+
+
+paging_strategies = {PagingStrategies.ListViewPagingStrategy: ListViewPagingStrategy(), PagingStrategies.SinglePostPagingStrategy: SinglePostPagingStrategy()}
+
+
 class ModelObjectBuilder(metaclass=ABCMeta):
     def builder_template_method(self):
         model_object = self.initialize_model_object()
@@ -31,7 +49,7 @@ class ModelObjectBuilderByCriteria(ModelObjectBuilder):
         self.parsed_url_arguments = parsed_url_arguments
 
     def initialize_model_object(self):
-        return PostList(application, flatpages, self.parsed_url_arguments)
+        return PostList(application, flatpages, self.parsed_url_arguments, PagingStrategies.ListViewPagingStrategy)
 
     def population_method(self, model_object):
         model_object.populate_post_list_get_all_posts()
@@ -41,29 +59,42 @@ class ModelObjectBuilderByCriteria(ModelObjectBuilder):
         model_object.apply_paging()
 
 
-#class ModelObjectBuilderBySinglePost(ModelObjectBuilder):
-#    raise NotImplementedError
+class ModelObjectBuilderBySinglePost(ModelObjectBuilder):
+    def __init__(self, post_data):
+        self.post_data = post_data
+
+    def initialize_model_object(self):
+        criteria = ModelObjectBuilderCriteria()
+        return PostList(application, flatpages, criteria, PagingStrategies.SinglePostPagingStrategy, 1)
+
+    def population_method(self, model_object):
+        model_object.populate_post_list_get_single_post(self.post_data)
+
+    def paging_hook(self, model_object):
+        model_object.total_number_of_pages = model_object.calculate_total_pages()
+        model_object.apply_paging()
 
 
-def model_object_builder_by_single_post_name():
-    raise NotImplementedError
-
-
-def populate_post_list_get_all_posts(reference_list):
-    for a_file in reference_list.flatpages:
-        if a_file.path.startswith(reference_list.application.config['BLOG_DIR']):
-            reference_list.append(a_file)
-    reference_list.sort(key=lambda item: item.meta['date'], reverse=True)
+class ModelObjectBuilderCriteria:
+    def __init__(self, page=0, tag=None, category=None):
+        self.page = page
+        self.tag = tag
+        self.category = category
 
 
 class PostList(list):
-    def __init__(self, application, flatpages, criteria):
+    def __init__(self, application, flatpages, criteria, paging_strategy_type, posts_per_page=None):
         super(PostList, self).__init__()
         self.application = application
         self.flatpages = flatpages
         self.criteria = criteria
         self._total_number_of_pages = 0
         self._total_post_count = 0
+        self.paging_strategy_function = paging_strategies[paging_strategy_type]
+        if not posts_per_page:
+            self.posts_per_page = self.application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']
+        else:
+            self.posts_per_page = posts_per_page
 
     def populate_post_list_get_all_posts(self):
         for a_file in self.flatpages:
@@ -71,14 +102,12 @@ class PostList(list):
                 self.append(a_file)
         self.sort(key=lambda item: item.meta['date'], reverse=True)
 
-    def populate_post_list_get_single_post(self, post_slugname):
-        pass
+    def populate_post_list_get_single_post(self, post):
+        self.append(post)
 
     def apply_paging(self):
-        posts_per_page = self.application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']
-
         if self.criteria.page is None or self.criteria.page == 0:
-            del self[posts_per_page:]
+            del self[self.posts_per_page:]
             return
         else:
             if self.criteria.page < 0:
@@ -86,12 +115,12 @@ class PostList(list):
             if self.criteria.page > self._total_number_of_pages:
                 raise SystemError()
 
-            paging_offset = posts_per_page * self.criteria.page
-            del self[paging_offset + posts_per_page:len(self)]
+            paging_offset = self.posts_per_page * self.criteria.page
+            del self[paging_offset + self.posts_per_page:len(self)]
             del self[0:paging_offset]
 
     def calculate_total_pages(self):
-        return int(self._total_post_count / self.application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']) + 1
+        return int(self._total_post_count / self.posts_per_page) + 1
 
     @property
     def total_number_of_pages(self):

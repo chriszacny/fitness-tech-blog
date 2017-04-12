@@ -1,6 +1,6 @@
 slugname: testing2
 title: Second Test Post
-date: 2012-09-02
+date: 2016-11-05
 author: Chris Zacny
 category: Programming
 tags:

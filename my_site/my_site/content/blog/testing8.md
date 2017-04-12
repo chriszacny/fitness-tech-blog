@@ -1,6 +1,6 @@
 slugname: testing8
-title: Seventh Test Post!
-date: 2016-03-06
+title: Eighth Test Post!
+date: 2015-12-30
 author: Chris Zacny
 category: Programming
 tags:

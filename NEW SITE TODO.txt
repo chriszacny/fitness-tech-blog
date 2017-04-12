@@ -2,17 +2,12 @@ NEW SITE TODO
 ================
 
 Immediate TODO:
-- Implement 'Summary' meta - display this, and perhaps an image in overview.
-- Clicking on single post link should take you there
-- Create favicon
-- Actually figure out site name
+- Clicking on single post link / Read More should take you there
+-- BUG: Click on single post, Next and Previous are jumping forward and back too many posts
+- This is getting complex - generate and implement unit tests for v1: http://pythoscope.org/
+
 - Write a few posts (See ideas in Trello)
 - Implement RSS - confirm above posts work
-- Start thinking about WSGI and WebServers:
--- https://docs.python.org/2/howto/webservers.html
--- https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface
---- Will these efficiently run my Python process in parallel such that each request can
-    calculate data to return on the fly, or should I use some sort of cache like Redis?
 - Pick out provider - Heroku, Github (?), Google (?), AWS (?)
 -- Consider - run it in a Docker container
 - Set up Ansible automation for WebServer and Deployment
@@ -22,8 +17,10 @@ Immediate TODO:
 - Push to whatever prod env I choose - site should display on the internet
 
 After Initial Deploy TODO:
+- Create favicon
 - Implement Category, Tag, Date Filtering
 - Implement Archives Page
+
 
 
 Site Behavior

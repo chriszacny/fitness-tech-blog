@@ -1,6 +1,6 @@
 slugname: testing6
 title: Sixth Test Post!
-date: 2016-05-02
+date: 2016-11-01
 author: Chris Zacny
 category: Programming
 tags:

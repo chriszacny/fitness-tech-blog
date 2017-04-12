@@ -1,6 +1,6 @@
 slugname: testing3
 title: Third Test Post
-date: 2012-08-02
+date: 2016-11-04
 author: Chris Zacny
 category: Programming
 tags:
