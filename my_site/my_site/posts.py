@@ -3,24 +3,6 @@ from my_site import flatpages
 from abc import abstractmethod, ABCMeta
 
 
-class PagingStrategies:
-    ListViewPagingStrategy = 0
-    SinglePostPagingStrategy = 1
-
-
-class ListViewPagingStrategy:
-    def apply_paging():
-        pass
-
-
-class SinglePostPagingStrategy:
-    def apply_paging():
-        pass
-
-
-paging_strategies = {PagingStrategies.ListViewPagingStrategy: ListViewPagingStrategy(), PagingStrategies.SinglePostPagingStrategy: SinglePostPagingStrategy()}
-
-
 class ModelObjectBuilder(metaclass=ABCMeta):
     def builder_template_method(self):
         model_object = self.initialize_model_object()
@@ -49,7 +31,7 @@ class ModelObjectBuilderByCriteria(ModelObjectBuilder):
         self.parsed_url_arguments = parsed_url_arguments
 
     def initialize_model_object(self):
-        return PostList(application, flatpages, self.parsed_url_arguments, PagingStrategies.ListViewPagingStrategy)
+        return PostList(application, flatpages, self.parsed_url_arguments)
 
     def population_method(self, model_object):
         model_object.populate_post_list_get_all_posts()
@@ -64,8 +46,8 @@ class ModelObjectBuilderBySinglePost(ModelObjectBuilder):
         self.post_data = post_data
 
     def initialize_model_object(self):
-        criteria = ModelObjectBuilderCriteria()
-        return PostList(application, flatpages, criteria, PagingStrategies.SinglePostPagingStrategy, 1)
+        criteria = ModelObjectBuilderCriteria(posts_per_page=1)
+        return PostList(application, flatpages, criteria)
 
     def population_method(self, model_object):
         model_object.populate_post_list_get_single_post(self.post_data)
@@ -76,38 +58,75 @@ class ModelObjectBuilderBySinglePost(ModelObjectBuilder):
 
 
 class ModelObjectBuilderCriteria:
-    def __init__(self, page=0, tag=None, category=None):
+    def __init__(self, page=0, tag=None, category=None, posts_per_page=None):
         self.page = page
         self.tag = tag
         self.category = category
+        if not posts_per_page:
+            self.posts_per_page = application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']
+        else:
+            self.posts_per_page = posts_per_page
+
+
+class Post:
+    def __init__(self, next_post, previous_post, data):
+        self.data = data
+        self.next_post = next_post
+        self.previous_post = previous_post
+
+    def __repr__(self):
+        next_post_name = ''
+        previous_post_name = ''
+        current_post_name = self.data.meta['slugname']
+        if self.next_post is not None:
+            next_post_name = self.next_post.data.meta['slugname']
+        if self.previous_post is not None:
+            previous_post_name = self.previous_post.data.meta['slugname']
+        print('Post name: {}. Previous post: {}. Next post: {}'.format(current_post_name, next_post_name, previous_post_name))
 
 
 class PostList(list):
-    def __init__(self, application, flatpages, criteria, paging_strategy_type, posts_per_page=None):
+    def __init__(self, application, flatpages, criteria):
         super(PostList, self).__init__()
         self.application = application
         self.flatpages = flatpages
         self.criteria = criteria
         self._total_number_of_pages = 0
         self._total_post_count = 0
-        self.paging_strategy_function = paging_strategies[paging_strategy_type]
-        if not posts_per_page:
-            self.posts_per_page = self.application.config['HOME_PAGE_ARTICLES_PER_PAGE_COUNT']
-        else:
-            self.posts_per_page = posts_per_page
+
+    """
+    def __repr__(self):
+        for a_post in self:
+            print(a_post)
+    """
 
     def populate_post_list_get_all_posts(self):
+        current_post = None
+        previous_post = None
         for a_file in self.flatpages:
             if a_file.path.startswith(self.application.config['BLOG_DIR']):
-                self.append(a_file)
-        self.sort(key=lambda item: item.meta['date'], reverse=True)
+                current_post = Post(None, previous_post, a_file)
+                if previous_post is not None:
+                    previous_post.next_post = current_post
+                previous_post = current_post
+                self.append(current_post)
+        self.sort(key=lambda item: item.data.meta['date'], reverse=True)
+        if self is not None:
+            print(self)
 
-    def populate_post_list_get_single_post(self, post):
-        self.append(post)
+
+    def populate_post_list_get_single_post(self, post_data):
+        self.populate_post_list_get_all_posts()
+        post_to_find = None
+        for a_post in self:
+            if a_post.data.meta['slugname'] == post_data.meta['slugname']:
+                post_to_find = a_post
+        self[:] = []
+        self.append(post_to_find)
 
     def apply_paging(self):
         if self.criteria.page is None or self.criteria.page == 0:
-            del self[self.posts_per_page:]
+            del self[self.criteria.posts_per_page:]
             return
         else:
             if self.criteria.page < 0:
@@ -115,12 +134,12 @@ class PostList(list):
             if self.criteria.page > self._total_number_of_pages:
                 raise SystemError()
 
-            paging_offset = self.posts_per_page * self.criteria.page
-            del self[paging_offset + self.posts_per_page:len(self)]
+            paging_offset = self.criteria.posts_per_page * self.criteria.page
+            del self[paging_offset + self.criteria.posts_per_page:len(self)]
             del self[0:paging_offset]
 
     def calculate_total_pages(self):
-        return int(self._total_post_count / self.posts_per_page) + 1
+        return int(self._total_post_count / self.criteria.posts_per_page) + 1
 
     @property
     def total_number_of_pages(self):
@@ -157,3 +176,7 @@ class PostList(list):
     @property
     def next_page_number(self):
         return self.criteria.page + 1
+
+    @property
+    def posts_per_page(self):
+        return self.criteria.posts_per_page

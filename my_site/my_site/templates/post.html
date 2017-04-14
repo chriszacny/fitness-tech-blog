@@ -1,13 +1,13 @@
 <article class="blog-post">
     <h1 class="entry-title">
-        <a href="{{ url_for('post', slugname=post.meta['slugname']) }}">{{ post.meta['title'] }}</a>
+        <a href="{{ url_for('post', slugname=post.data.meta['slugname']) }}">{{ post.data.meta['title'] }}</a>
     </h1>
     <p class="meta-info">
-        Posted on {{ post.meta['date'] }}
-        by <strong>{{ post.meta['author'] }}</strong>
-         in <strong><a href="{{ url_for('blog') }}?category={{ post.meta['category'] }}">{{ post.meta['category'] }}</a></strong>.
+        Posted on {{ post.data.meta['date'] }}
+        by <strong>{{ post.data.meta['author'] }}</strong>
+         in <strong><a href="{{ url_for('blog') }}?category={{ post.data.meta['category'] }}">{{ post.data.meta['category'] }}</a></strong>.
         <br/>
-        Tags: {% for tag_name in post.meta['tags'] %}<strong><a href="{{ url_for('blog') }}?tag={{ tag_name }}">{{ tag_name }}</a></strong> {% endfor %}
+        Tags: {% for tag_name in post.data.meta['tags'] %}<strong><a href="{{ url_for('blog') }}?tag={{ tag_name }}">{{ tag_name }}</a></strong> {% endfor %}
     </p>
-    {{ post.html|safe }}
+    {{ post.data.html|safe }}
 </article>

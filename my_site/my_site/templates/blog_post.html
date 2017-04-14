@@ -9,13 +9,13 @@
 
   <div class="row nav-posts-row">
       <div class="column small-12 medium-4 text-center">
-          {% if model_object.has_previous_page %}
-            <a href="{{ url_for('blog') }}?page={{ model_object.previous_page_number }}" class="nav-posts-button"><<< Previous</a>
+          {% if model_object[0].data.previous_post_slugname is not none %}
+            <a href="{{ url_for('post', slugname=model_object[0].data.previous_post_slugname) }}" class="nav-posts-button"><<< Previous</a>
           {% endif %}
       </div>
       <div class="column small-12 medium-4 text-center">
-          {% if model_object.has_next_page %}
-            <a href="{{ url_for('blog') }}?page={{ model_object.next_page_number }}" class="nav-posts-button">Next >>></a>
+          {% if model_object[0].data.next_post_slugname is not none %}
+            <a href="{{ url_for('post', slugname=model_object[0].data.next_post_slugname) }}" class="nav-posts-button">Next >>></a>
           {% endif %}
       </div>
   </div>

@@ -45,9 +45,10 @@ def get_post_by_slugname(name):
 
 def get_model_object_builder_criteria():
     model_object_builder_criteria = posts.ModelObjectBuilderCriteria()
-    builder_workflows = {'page': [validate_page, set_page],
+    builder_workflows = {'page': [validate_int_args, set_page],
                  'tag': [validate_tag, set_tag],
-                 'category': [validate_category, set_category]}
+                 'category': [validate_category, set_category],
+                 'posts_per_page': [validate_int_args, set_posts_per_page]}
     for key in builder_workflows:
         if key in request.args:
             workflow_to_execute = builder_workflows[key]
@@ -56,7 +57,7 @@ def get_model_object_builder_criteria():
     return model_object_builder_criteria
 
 
-def validate_page(parsed_url_arguments):
+def validate_int_args(parsed_url_arguments):
     try:
         int(request.args.get('page'))
     except ValueError:
@@ -65,6 +66,10 @@ def validate_page(parsed_url_arguments):
 
 def set_page(parsed_url_arguments):
     parsed_url_arguments.page = int(request.args.get('page'))
+
+
+def set_posts_per_page(parsed_url_arguments):
+    parsed_url_arguments.posts_per_page = int(request.args.get('posts_per_page'))
 
 
 def validate_tag(parsed_url_arguments):
