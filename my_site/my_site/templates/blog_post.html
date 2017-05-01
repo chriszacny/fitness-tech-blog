@@ -2,11 +2,10 @@
 {% block subtitle %} - Blog Post{% endblock %}
 {% block content %}
   <div class="articles-section">
-    {% for post in model_object %}
       {% include 'post.html' %}
-    {% endfor %}
   </div>
 
+<!--
   <div class="row nav-posts-row">
       <div class="column small-12 medium-4 text-center">
           {% if model_object[0].data.previous_post_slugname is not none %}
@@ -19,5 +18,6 @@
           {% endif %}
       </div>
   </div>
+-->
 
 {% endblock %}
