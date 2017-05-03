@@ -1,4 +1,11 @@
 from abc import abstractmethod, ABCMeta
+from my_site import application
+from my_site import flatpages
+
+
+class Post:
+    def __init__(self, post_data):
+        self.data = post_data
 
 
 class ModelObject:
@@ -18,7 +25,8 @@ class SummaryModelObject(ModelObject):
 class SingleBlogPostModelObject(ModelObject):
     def __init__(self, slugname):
         super(SingleBlogPostModelObject, self).__init__()
-        self.slugname = slugname
+        self.post_data = get_post_by_slugname(slugname)
+        self.post = Post(self.post_data)
 
 
 def get_post_by_slugname(name):

@@ -2,22 +2,19 @@
 {% block subtitle %} - Blog Post{% endblock %}
 {% block content %}
   <div class="articles-section">
-      {% include 'post.html' %}
+      <article class="blog-post">
+          <h1 class="entry-title">
+              <a href="{{ url_for('single_blog_post', slugname=model_object.post.data.meta['slugname']) }}">{{ model_object.post.data.meta['title'] }}</a>
+          </h1>
+          <p class="meta-info">
+              Posted on {{ model_object.post.data.meta['date'] }}
+              by <strong>{{ model_object.post.data.meta['author'] }}</strong>
+               in <strong><a href="{{ url_for('blog') }}?category={{ model_object.post.data.meta['category'] }}">{{ model_object.post.data.meta['category'] }}</a></strong>.
+              <br/>
+              Tags: {% for tag_name in model_object.post.data.meta['tags'] %}<strong><a href="{{ url_for('blog') }}?tag={{ tag_name }}">{{ tag_name }}</a></strong> {% endfor %}
+          </p>
+          {{ model_object.post.data.html|safe }}
+      </article>
   </div>
-
-<!--
-  <div class="row nav-posts-row">
-      <div class="column small-12 medium-4 text-center">
-          {% if model_object[0].data.previous_post_slugname is not none %}
-            <a href="{{ url_for('post', slugname=model_object[0].data.previous_post_slugname) }}" class="nav-posts-button"><<< Previous</a>
-          {% endif %}
-      </div>
-      <div class="column small-12 medium-4 text-center">
-          {% if model_object[0].data.next_post_slugname is not none %}
-            <a href="{{ url_for('post', slugname=model_object[0].data.next_post_slugname) }}" class="nav-posts-button">Next >>></a>
-          {% endif %}
-      </div>
-  </div>
--->
 
 {% endblock %}

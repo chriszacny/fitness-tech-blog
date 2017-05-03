@@ -1,5 +1,4 @@
 from my_site import application
-from my_site import flatpages
 
 from flask import render_template, request, abort
 from pygments.formatters import HtmlFormatter
